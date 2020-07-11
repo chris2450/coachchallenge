@@ -1,0 +1,22 @@
+//<ion-content>
+    <body>
+    <div class="sign-up-form">
+      <h1> Login </h1>
+      <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+        <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required>
+        <input type="text" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4">
+    <hr>
+    <input type="submit" value="Login">
+    <hr>
+    <p>Do you have an account? </p>
+    
+
+    <img src="../../assets/icon/TXT_White.png">
+    
+  
+
+
+  </form>
+  </div>
+</body>
+  </ion-content>

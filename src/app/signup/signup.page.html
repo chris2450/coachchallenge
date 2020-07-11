@@ -1,0 +1,31 @@
+
+  //<ion-content>
+    <body>
+    <div class="sign-up-form">
+      <h1> Sign Up Now</h1>
+      <form #signUpForm="ngForm"  (ngSubmit)="onSubmit(signUpForm)">
+    <input type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
+    required>
+    <input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email Address">
+    <input type="text" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password">
+    <hr>
+   <input type="submit" value="Sign Up">
+    <hr>
+    <p>Do you have an account? </p>
+    
+
+    <img src="../../assets/icon/TXT_White.png">
+    
+  
+
+  
+  </form>
+</div>
+</body>
+
+<div class="success" *ngIf="showSuccessMessage">
+  Saved successfully
+</div>
+  </ion-content>
+
+
