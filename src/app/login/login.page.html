@@ -1,8 +1,8 @@
-//<ion-content>
+<ion-content>
     <body>
-    <div class="sign-up-form">
-      <h1> Login </h1>
-      <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+ 
+     <h1> Login </h1>
+      <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit(loginForm)">
         <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required>
         <input type="text" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4">
     <hr>
@@ -17,6 +17,9 @@
 
 
   </form>
+ <!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
   </div>
 </body>
   </ion-content>

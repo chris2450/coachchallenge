@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule } from '@angular/common/http';
-
+import {UserService} from './shared/user.service';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 // routes
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -22,12 +23,14 @@ import { AppRoutingModule } from './app-routing.module';
   entryComponents: [],
   imports: [BrowserModule,
     FormsModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
-  providers:  [
-    [UserService],
+  providers: [
+
     StatusBar,
+    UserService,
+    AuthGuard,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

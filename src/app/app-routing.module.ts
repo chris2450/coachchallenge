@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: 'home',
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'blogs',
-    loadChildren: () => import('./blogs/blogs.module').then( m => m.BlogsPageModule)
+    loadChildren: () => import('./blogs/blogs.module').then( m => m.BlogsPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'createblog',
